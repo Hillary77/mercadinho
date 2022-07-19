@@ -10,12 +10,13 @@ $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $dados['public'] = date('Y-m-d H:i:m');
 unset($dados['salvar']);
 
-$i = 0;
+$i = 2;
 $i++;
 $cliente = $dados['cliente_id'];
 $produtos = $dados['produto_id'];
 $public = $dados['public'];
-
+  
+  
 foreach ($produtos as $key => $value) {
     $sql = $pdo->query("SELECT id, valor FROM produto WHERE id=$value");
 
@@ -27,7 +28,7 @@ foreach ($produtos as $key => $value) {
         $insert->bindValue('cliente_id', $cliente, PDO::PARAM_INT);
         $insert->bindValue('produto_id', $v['id'], PDO::PARAM_INT);
         $insert->bindValue('valor', $v['valor'], PDO::ATTR_FETCH_TABLE_NAMES);
-        $insert->bindValue('quantidade', array_shift($dados['quantidade']), PDO::PARAM_INT);
+        $insert->bindValue('quantidade',array_pop($dados['quantidade']), PDO::PARAM_INT);
         $insert->bindValue('public', $public, PDO::PARAM_STR);
         $insert->execute();
     }

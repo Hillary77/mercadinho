@@ -1,6 +1,6 @@
 <?php
 include '../_app/config.php';
-
+$total = 0;
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 $query = $pdo->query("SELECT p.nome_produto, v.produto_id, v.valor, v.quantidade FROM vendas as v INNER JOIN produto as p ON v.produto_id=p.id WHERE codigo = $id");
 ?>
