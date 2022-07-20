@@ -7,8 +7,10 @@ $codigo = filter_input(INPUT_GET, 'venda', FILTER_VALIDATE_INT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
 if ($id) {
-    $delete = $pdo->prepare("DELETE FROM vendas WHERE id=:id");
+    $sql = "DELETE FROM vendas WHERE id=:id";
+    $delete = $pdo->prepare($sql);
     $delete->bindParam(':id', $id, PDO::PARAM_INT);
+
     if ($delete->execute()) {
         header("Location: index.php");
         echo 'id' . $id . ' EXCLUIDO com sucesso!';

@@ -41,7 +41,7 @@ include "../../_app/config.php";
         </div>
 
     </div>
-    <button type="submit" class="btn btn-primary mb-2">Entrar</button>
+    <button type="submit" class="btn btn-primary mb-2">Salvar</button>
 </form>
 <!--Fim form-->
 
