@@ -16,9 +16,9 @@ foreach ($dados['id'] as $key => $value) {
         $update = $pdo->prepare("UPDATE vendas SET cliente_id=:cliente_id,quantidade=:quantidade WHERE id = '$value'");
         $update->bindValue('cliente_id', $dados['cliente_id'], PDO::PARAM_INT);
         $update->bindValue('quantidade', array_shift($dados['quantidade']), PDO::PARAM_INT);
-        //$update->execute();
-        echo"<pre>";
-        var_dump($update);
+        $update->execute();
+//        echo"<pre>";
+//        var_dump($update);
     }else{
         $insert = $pdo->prepare("INSERT INTO vendas (codigo, checks, cliente_id, produto_id, valor, quantidade, public) VALUES (:codigo, :checks, :cliente_id, :produto_id, :valor, :quantidade, :public)");
         $insert->bindValue('codigo', implode(",",$dados['codigo']), PDO::PARAM_STR);
@@ -28,9 +28,9 @@ foreach ($dados['id'] as $key => $value) {
         $insert->bindValue('valor', array_pop($dados['valor']), PDO::ATTR_FETCH_TABLE_NAMES);
         $insert->bindValue('quantidade', array_pop($dados['quantidade']), PDO::PARAM_INT);
         $insert->bindValue('public', $dados['public'], PDO::PARAM_STR);
-        //$insert->execute();
-        echo"<pre>";
-        var_dump($insert);
+        $insert->execute();
+//        echo"<pre>";
+//        var_dump($insert);
     }
 }
 
