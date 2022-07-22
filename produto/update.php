@@ -10,13 +10,15 @@ $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $dados['public'] = date('Y-m-d H:m:i');
 $dados['valor'] = str_replace(',', '.', $dados['valor']);
 
+
 if (empty($dados['imagem'])) {
     echo "<script <img src='../_img/'" . $dados['imagem'] . "'' style='width: 90px; height: 100px;' alt='...' class='img-thumbnail'></script>";
     $file = getimagesize($dados['imagem']);
     $tamanho = filesize($dados['imagem']);
+    $imagem = addslashes(fread(fopen($dados['imagem']), $tamanho));
 
-    $novoDestino = "../_img" . uniqid('', true) . '.';
-    move_uploaded_file($dados['imagem'], $novoDestino);
+    $novoDestino = "../_img" ;
+    move_uploaded_file($dados['imagem']['tmp_name'], $novoDestino, $imagem);
 }
 
 //gravo as inforações no DB

@@ -58,8 +58,8 @@ foreach ($rows as $row) {
     echo"<td>$cidade</td>";
     echo"<td>$date_br</td>";
     echo"<td>$cep_br</td>";
-    echo"<td><a href='editar.php?id=$id'class='btn btn-outline-success  btn-sn'><i class='bi bi-pencil-square'></i></a>";
-    echo"<br><a class='btn btn-outline-danger  btn-sn' href=?id=$id><i class='bi bi-trash3'></i></a></td>";
+    echo"<td><a href='editar.php?id=$id'class='btn btn-outline-success  btn-sn rounded-circle'><i class='bi bi-pencil-square'></i></a>";
+    echo"<br><a class='btn btn-outline-danger  btn-sn rounded-circle' href=?id=$id><i class='bi bi-trash3'></i></a></td>";
     echo"</tr>";
 }
 ?>

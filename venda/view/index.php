@@ -8,15 +8,16 @@ if ($codigo) {
     $delete = $pdo->prepare("DELETE FROM vendas WHERE codigo=:codigo");
     $delete->bindParam(':codigo', $codigo, PDO::PARAM_INT);
     if ($delete->execute()) {
-          
+
         header("Location: index.php");
-        echo 'id' . $codigo . ' EXCLUIDO com sucesso!';
+        echo 'codigo' . $codigo . ' EXCLUIDO com sucesso!';
     } else {
         echo'<p>Não foi possível EXCLUIR!</p>';
     }
 }
 ?>
 
+<!--INI CONTAINER-->
 <!--Ini listagem-->
 <div class="container">
     <table class="table table-bordered table-striped ">  
@@ -38,20 +39,18 @@ if ($codigo) {
             $rows = $dados_c->fetchAll();
             foreach ($rows as $row) {
                 extract($row);
-
                 echo"<tr class = text-center>";
                 echo"<td>$codigo</td>";
                 echo"<td>$nome $ultimonome</td>";
                 echo"<td>$conta</td>";
                 echo"<td>" . number_format($soma, 2, ',', '.') . "</td>";
-                echo"<td>".$qntd."</td>";
-                echo"<td><button type='button' class='btn btn-outline-success' data-toggle='modal' data-target='#exampleModal' data-whatever='$codigo'><i class='bi bi-filter-square'></i></button><br>"
-                . "<a type='button' href='editar.php?venda=$codigo' class='btn btn-outline-info btn-sn'><i class='bi bi-pencil-square'></i></a><br>"
-                . "<a class='btn btn-outline-danger btn-sn' href=?venda=$codigo><i class='bi bi-trash3'></i></a></td>"; //excluir
+                echo"<td>" . $qntd . "</td>";
+                echo"<td><button type='button' class='btn btn-outline-success rounded-circle' data-toggle='modal' data-target='#exampleModal' data-whatever='$codigo'><i class='bi bi-filter-square'></i></button><br>"
+                . "<a type='button' href='editar.php?venda=$codigo' class='btn btn-outline-info btn-sn rounded-circle'><i class='bi bi-pencil-square'></i></a><br>"
+                . "<a class='btn btn-outline-danger btn-sn rounded-circle' href=?venda=$codigo><i class='bi bi-trash3'></i></a></td>"; //excluir
                 echo"</tr>";
             }
             ?>
-
         </thead>
     </table>
 </div>

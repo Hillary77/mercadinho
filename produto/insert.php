@@ -14,20 +14,19 @@ $dados['public'] = date('Y-m-d H:m:i');
 $dados['valor'] = str_replace(',', '.', $dados['valor']);
 
 if (empty($dados['imagem'])) {
-    echo "<script <img src='../_img/'" . $dados['imagem'] . "'' style='width: 90px; height: 100px;' alt='...' class='img-thumbnail'></script>";
     $file = getimagesize($dados['imagem']);
     $tamanho = filesize($dados['imagem']);
-    $imagem = addslashes(fread(fopen($dados['imagem']), $tamanho));
+    $imagem = addslashes(fread(fopen($dados['imagem'],'r'), $tamanho));
 
     //MONTA O CAMINHO DO NOVO DESTINO
     $novoDestino = "../_img" . uniqid('', true) . '.';
-    move_uploaded_file($dados['imagem']["tmp_name"], $novoDestino, $imagem);
+    move_uploaded_file($dados['imagem'], $novoDestino, $imagem);
 }
 
 //Guardar as informções no Db
 $sql = "INSERT INTO produto (nome_produto, descricao, valor, estoque, imagem, public) VALUES (:nome_produto, :descricao, :valor, :estoque, :imagem, :public)";
-$stmt = $pdo->prepare($sql);
-$stmt->execute($dados);
+$insert = $pdo->prepare($sql);
+$insert->execute($dados);
 
 if (!$dados) {
     echo'<p>Não foi possível cadastrar</p>';

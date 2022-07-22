@@ -52,10 +52,10 @@ foreach ($rows as $row) {
     echo"<td>$nome_produto</td>";
     echo"<td>".number_format($valor,2,',','.')."</td>";
     echo"<td>$estoque</td>";
-    echo"<td class='text-center'><img src=/epl/_img/$imagem  style='width: 100px; height: 100px;'alt='...' class='img-thumbnail'></td>";
-    echo"<td class='text-center'><button type='button' class='btn btn-outline-secundary  btn-sn' data-toggle='modal' data-target='#exampleModal' data-whatever='$nome_produto' data-text='$descricao' data-img='$imagem'><i class='bi bi-filter-square'></i></button><br>"; //visualizar
-    echo"<a type='button' href='editar.php?id=$id' class='btn btn-outline-success  btn-sn'><i class='bi bi-pencil-square'></i></a><br>"; //editar
-    echo"<a class='btn btn-outline-danger  btn-sn' href=?id=$id><i class='bi bi-trash3'></i></a></td>"; //excluir
+    echo"<td class='text-center'><img src=../../_img/$imagem  style='width: 100px; height: 100px;'alt='...' class='img-thumbnail'></td>";
+    echo"<td class='text-center'><button type='button' class='btn btn-outline-secundary  btn-sn rounded-circle' data-toggle='modal' data-target='#exampleModal' data-whatever='$nome_produto' data-text='$descricao' data-img='$imagem'><i class='bi bi-filter-square'></i></button><br>"; //visualizar
+    echo"<a type='button' href='editar.php?id=$id' class='btn btn-outline-success  btn-sn rounded-circle'><i class='bi bi-pencil-square'></i></a><br>"; //editar
+    echo"<a class='btn btn-outline-danger  btn-sn rounded-circle' href=?id=$id><i class='bi bi-trash3'></i></a></td>"; //excluir
     echo"</tr>";
 }
 ?>
