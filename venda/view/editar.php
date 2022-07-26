@@ -55,19 +55,24 @@ if ($id) {
 
             foreach ($rows as $row) {
                 extract($row);
-                echo"<input type='hidden' name='codigo[]' value='" . $codigo . "'>";
-                echo"<input type='hidden' name='valor[]' value='" . $valor . "'>";
-                echo"<input type='hidden' name='id[]' value='" . $id_venda . "'>";
+                
+                //Dados da view editar
                 echo"<tr>";
-                if ($checks == $id) {
-                    echo"<td><input type='checkbox' name='produto_id[]' value='" . $id . "' checked></td>";
+                if ($checks) {
+                    echo"<td><input type='checkbox' name='sim[$id]' value='" . $id . "' checked></td>";
                 } else {
-                    echo"<td><input type='checkbox' name='produto_id[]' value='" . $id . "'></td>";
+                    echo"<td><input type='checkbox' name='nao[$id]' value='" . $id . "'></td>";
                 }
                 echo"<td>$nome_produto</td>";
                 echo"<td>" . number_format($valor, 2, ',', '.') . "</td>";
                 echo"<td><input type='number' name='quantidade[]' value='" . $quantidade . "'></td>";
                 echo"</tr>";
+                //Dados da tabela produto
+                echo"<input type='hidden' name='codigo[]' value='" . $codigo . "'>";
+                echo"<input type='hidden' name='valor[]' value='" . $valor . "'>";
+                echo"<input type='hidden' name='id_venda[]' value='" . $id_venda . "'>";
+                echo"<input type='hidden' name='checks[]' value='" . $id . "'>";
+                echo"<input type='hidden' name='produto_id[]' value='" . $id . "'>";
             }
             ?>
 
