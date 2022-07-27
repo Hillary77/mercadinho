@@ -8,6 +8,17 @@ include "../_app/config.php";
 $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $dados['public'] = date('Y-m-d H:m:i');
 
+echo"<pre>";
+var_dump($dados);
+
+//Não checados
+if ($dados['quantidade'] == null) {
+    $sql = "DELETE FROM vendas WHERE id=:id";
+    $delete = $pdo->prepare($sql);
+    $delete->bindParam(':id', $id, PDO::PARAM_INT);
+}
+
+//Checados
 foreach ($dados['id_venda'] as $key => $value) {
     if (!empty($value)) {
         $update = $pdo->prepare("UPDATE vendas SET cliente_id=:cliente_id,quantidade=:quantidade, public=:public WHERE id = '$value'");
@@ -15,10 +26,10 @@ foreach ($dados['id_venda'] as $key => $value) {
         $update->bindValue('quantidade', array_shift($dados['quantidade']), PDO::PARAM_INT);
         $update->bindValue('public', $dados['public'], PDO::PARAM_STR);
         $update->execute();
-    } elseif (!empty($dados['nao'])) {
+    } elseif (!empty($dados['check'])) {
         $insert = $pdo->prepare("INSERT INTO vendas (codigo, checks, cliente_id, produto_id, valor, quantidade, public) VALUES (:codigo, :checks, :cliente_id, :produto_id, :valor, :quantidade, :public)");
         $insert->bindValue('codigo', implode(",", $dados['codigo']), PDO::PARAM_STR);
-        $insert->bindValue('checks', array_pop($dados['nao']), PDO::PARAM_INT);
+        $insert->bindValue('checks', array_pop($dados['checks']), PDO::PARAM_INT);
         $insert->bindValue('cliente_id', $dados['cliente_id'], PDO::PARAM_STR);
         $insert->bindValue('produto_id', array_pop($dados['produto_id']), PDO::PARAM_INT);
         $insert->bindValue('valor', array_pop($dados['valor']), PDO::ATTR_FETCH_TABLE_NAMES);
@@ -27,7 +38,7 @@ foreach ($dados['id_venda'] as $key => $value) {
         $insert->execute();
     }
 }
-//
+
 //if (!$dados) {
 //    echo'<p>Não foi possível Editar</p>';
 //} else {

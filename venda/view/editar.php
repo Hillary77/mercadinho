@@ -42,6 +42,7 @@ if ($id) {
             <thead class="thead-dark">
                 <tr class="text-center">
                     <th>#</th>
+                 <!--<th>id</th>-->
                     <th>Nome</th>
                     <th>Preço</th>
                     <th>Quantidade à ser retirada</th>
@@ -55,15 +56,17 @@ if ($id) {
 
             foreach ($rows as $row) {
                 extract($row);
-                
+
                 //Dados da view editar
                 echo"<tr>";
-                if ($checks) {
-                    echo"<td><input type='checkbox' name='sim[$id]' value='" . $id . "' checked></td>";
+                if ($checks == true) {
+                    echo"<td><input type='checkbox' name='check[$id]' checked></td>";
                 } else {
-                    echo"<td><input type='checkbox' name='nao[$id]' value='" . $id . "'></td>";
+                    echo"<td><input type='checkbox' name='check[$id]' ></td>";
                 }
-                echo"<td>$nome_produto</td>";
+
+                //echo"<td> $id</td>";
+                echo"<td> $nome_produto</td>";
                 echo"<td>" . number_format($valor, 2, ',', '.') . "</td>";
                 echo"<td><input type='number' name='quantidade[]' value='" . $quantidade . "'></td>";
                 echo"</tr>";
