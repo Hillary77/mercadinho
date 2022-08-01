@@ -1,7 +1,7 @@
 <?php
-/*
- * RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
- */
+
+// RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
+
 include "../_app/config.php";
 
 //Recupera as informações do formulario
@@ -17,7 +17,7 @@ $delete->execute();
 //filtra o array e deixa somente o que tem 1
 $check = array_filter($dados['check']);
 
-//Insere todos os produtos que tem 1 na mesma conta
+//Insere todos os produtos que tem 1 na mesma venda
 foreach ($check as $key => $value) {
     $insert = $pdo->prepare("INSERT INTO vendas (codigo, cliente_id, produto_id, valor, quantidade, public) VALUES (:codigo, :cliente_id, :produto_id, :valor, :quantidade, :public)");
     $insert->bindValue('codigo', $codigo, PDO::PARAM_INT);

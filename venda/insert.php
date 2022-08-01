@@ -10,6 +10,7 @@ $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $dados['public'] = date('Y-m-d H:i:m');
 unset($dados['salvar']);
 
+ 
 //Gera codigo da venda
 $i = 2;
 $i++;
