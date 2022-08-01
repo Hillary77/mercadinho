@@ -1,18 +1,21 @@
 <?php
-//var_dump($_SERVER['SCRIPT_FILENAME']); --->Achar diretório(pasta onde o arquivo está localizado).
+//REPONSÁVEL POR TRAZER O NAVEBAR PARA TODAS AS ATAS VIEW.
 include "../../header.inc.php";
+//RESPONSAVEL PELA INSERÇÃO DAS INFORMAÇOES NO BANCO DE DADOS
 include "../../_app/config.php";
-/*
- * Botão de exluir da tabela
- */
+
+
+//Botão de exluir da tabela
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
+//Traz para deletar do Banco de dados as informações de cada produto e seu id.
 if ($id) {
     $sql = "DELETE FROM produto WHERE id=:id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-    if ($stmt->execute()) {
+    $delete = $pdo->prepare($sql);
+    $delete->bindParam(':id', $id, PDO::PARAM_INT);
+    
+    //Verifica se executou corretamente, direciona novamente á tabela.
+    if ($delete->execute()) {
         header("Location: index.php");
         echo 'id' . $id . ' EXCLUIDO com sucesso!';
     } else {
@@ -37,12 +40,12 @@ if ($id) {
             </tr>
 
 <?php
-//Chamar dados para o listagem
-$sth = $pdo->query('SELECT * FROM produto ORDER BY nome_produto');
-$rows = $sth->fetchAll();
+//Select é utilizado para extrair/trazer os dados das tabelas de um banco de dados.
+$select = $pdo->query('SELECT * FROM produto ORDER BY nome_produto');
+$rows = $select->fetchAll();
 
 $i = 0;
-//Faz o loop dos dados que entra no Db para a tabela
+//Faz o loop dos dados que entra no Banco de dados para a tabela
 foreach ($rows as $row) {
     extract($row);
     $i++;
@@ -61,7 +64,7 @@ foreach ($rows as $row) {
 ?>
         </thead>
     </table>
-    </div>
+</div>
 <!--Fim tabela listagem-->
 
 
@@ -113,6 +116,7 @@ foreach ($rows as $row) {
 <!--Fim Javascript-->
 
 <?php
+//TRAZ DADOS DO NAVBAR
 include "../../footer.inc.php";
 ?>
 
