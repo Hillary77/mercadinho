@@ -38,7 +38,9 @@ $row = $sth->fetch();
             <input type="file" class="form-control" value="<?= $row['imagem'] ?>"name="imagem">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary mb-5" >Editar</button>
+      <div class="text-center" colspan="6">
+    <button type="submit" class="btn btn-primary mb-2">Editar</button>
+    </div>
 </form>
 
 

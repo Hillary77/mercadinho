@@ -50,8 +50,8 @@ $row = $sth->fetch();
             <input type="text" class="form-control" value="<?= $row['cep'] ?>" name="cep">
         </div>
     </div>
-    <div>
-        <button type="submit" class="btn btn-primary mb-5" >Editar</button>
+     <div class="text-center" colspan="6">
+    <button type="submit" class="btn btn-primary mb-2">Editar</button>
     </div>
 </form>
 

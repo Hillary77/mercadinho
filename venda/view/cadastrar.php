@@ -54,7 +54,7 @@ include "../../_app/config.php";
                 ?>
                 <tr>
                     <td class="text-center" colspan="6">
-                        <input type="submit"  name="salvar" class="btn btn-primary mb-2" value="Salvar"> <!--Botão Salvar-->
+                        <button type="submit" class="btn btn-primary mb-2">Salvar</button> <!--Botão Salvar-->
                     </td>
                 </tr>    
             </tbody>

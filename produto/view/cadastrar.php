@@ -32,7 +32,9 @@ include "../../_app/config.php";
             <input type="file" class="form-control" name="imagem">
         </div>  
     </div>
-    <button type="submit" class="btn btn-primary mb-2">Salvar</button>
+    <div class="text-center" colspan="6">
+        <button type="submit" class="btn btn-primary mb-2">Salvar</button>
+    </div>
 </form>
 <!--Fim form-->
 
