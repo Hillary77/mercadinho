@@ -1,6 +1,5 @@
 <?php
 include '../_app/config.php';
-//
 $i=0;
 $total = 0;
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -24,8 +23,7 @@ $query = $pdo->query("SELECT p.nome_produto, v.produto_id, v.valor, v.quantidade
                 $total += $subtotal;
                 $i++;
                 ?>
-
-                <tr class="text-center">
+               <tr class="text-center">
                     <td><?= $i?></td>
                     <td><?= $row['nome_produto'] ?></td>
                     <td class="text-right"><?= number_format($row['valor'], 2, ',', '.') ?></td>

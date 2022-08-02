@@ -1,7 +1,6 @@
 <?php
-
+//
 // RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
-
 include "../_app/config.php";
 
 //Recupera as informações do formulario
@@ -13,7 +12,7 @@ $sql = "DELETE FROM vendas WHERE codigo = :codigo";
 $delete = $pdo->prepare($sql);
 $delete->bindParam(':codigo', $codigo, PDO::PARAM_INT);
 $delete->execute();
-//
+
 //filtra o array e deixa somente o que tem 1
 $check = array_filter($dados['check']);
 
