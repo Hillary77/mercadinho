@@ -4,7 +4,7 @@
  * RESPONSAVEL PELA INSERÇÃO DAS INFORMAÇOES NO DB
  */
 include "../_app/config.php";
-
+//
 //Recupera as informações preenchidas no formulário que foi trago pelo metódo POST.
 $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $dados['public'] = date('Y-m-d H:i:m');

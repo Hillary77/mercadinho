@@ -1,14 +1,18 @@
 <?php
+/*
+ * RESPONSAVEL PELA INSERÇÃO DAS INFORMAÇOES NO DB
+ */
 include "../../_app/config.php";
 include "../../header.inc.php";
-
+//Recupera as informações preenchidas no formulário que foi trago pelo metódo GET.
 $codigo = filter_input(INPUT_GET, 'venda', FILTER_VALIDATE_INT);
 
+//Traz para deletar do Banco de dados as informações de cada venda e seu codigo.
 if ($codigo) {
     $delete = $pdo->prepare("DELETE FROM vendas WHERE codigo=:codigo");
     $delete->bindParam(':codigo', $codigo, PDO::PARAM_INT);
     if ($delete->execute()) {
-
+   //Verifica se executou corretamente, direciona novamente á tabela.
         header("Location: index.php");
         echo 'codigo' . $codigo . ' EXCLUIDO com sucesso!';
     } else {
@@ -32,11 +36,12 @@ if ($codigo) {
             </tr>
 
             <?php
-            $dados_c = $pdo->query("SELECT COUNT(*) as conta, SUM(v.valor) as soma, SUM(v.quantidade) as qntd, v.id, v.codigo, u.nome, u.ultimonome, p.nome_produto, v.valor FROM vendas as v "
+            //Select é utilizado para extrair/trazer os dados das tabelas de um banco de dados.
+            $cliente = $pdo->query("SELECT COUNT(*) as conta, SUM(v.valor) as soma, SUM(v.quantidade) as qntd, v.id, v.codigo, u.nome, u.ultimonome, p.nome_produto, v.valor FROM vendas as v "
                     . "INNER JOIN usuario as u ON v.cliente_id = u.id "
                     . "INNER JOIN produto as p ON v.produto_id = p.id "
                     . "GROUP BY v.codigo ");
-            $rows = $dados_c->fetchAll();
+            $rows = $cliente->fetchAll();
             foreach ($rows as $row) {
                 extract($row);
                 echo"<tr class = text-center>";
@@ -57,6 +62,7 @@ if ($codigo) {
 <!--FIM CONTAINER-->
 
 <!--INICIO MODAL-->
+<!--Modal serve para abrir uma janela separada/sobre a janela principal-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -77,6 +83,7 @@ if ($codigo) {
 <!--FIM MODAL-->
 
 <script>
+    //O javascript serve para criar tipo um diálogo com o que cada coisa vai executar ao apertar no botão do modal
     $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget); // Botão que acionou o modal
         var recipient = button.data('whatever');//id da venda

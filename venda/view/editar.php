@@ -1,7 +1,7 @@
 <?php
 include "../../_app/config.php";
 include "../../header.inc.php";
-
+//
 //padrão para facilidade entendimento
 $codigo = filter_input(INPUT_GET, 'venda', FILTER_VALIDATE_INT);
 

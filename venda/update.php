@@ -13,7 +13,7 @@ $sql = "DELETE FROM vendas WHERE codigo = :codigo";
 $delete = $pdo->prepare($sql);
 $delete->bindParam(':codigo', $codigo, PDO::PARAM_INT);
 $delete->execute();
-
+//
 //filtra o array e deixa somente o que tem 1
 $check = array_filter($dados['check']);
 
