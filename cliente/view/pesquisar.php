@@ -7,7 +7,7 @@ $nomes = filter_input(INPUT_POST, 'pesquisa', FILTER_DEFAULT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
 if ($nomes) {
-
+    //Traz dados e indica quais dados devem ser pesquisados
     $sql = "SELECT nome, ultimonome, email, endereco, cidade, data, cep FROM usuario WHERE nome LIKE '%$nomes%' or ultimonome LIKE '%$nomes%' or data LIKE '%$nomes%'";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();

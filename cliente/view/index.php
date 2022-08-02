@@ -55,7 +55,7 @@ if ($id) {
                 $dois = substr($cep, -3);
                 $cep_br = $um . '-' . $dois;
                 $i++;
-
+                //dados a serem listados
                 echo"<tr class='text-center'>";
                 echo"<td>$i</td>";
                 echo"<td>$nome</td>";
@@ -75,4 +75,5 @@ if ($id) {
 
 <?php
 //TRAZ A BASE DO NAVBAR
+
 include "../../footer.inc.php";

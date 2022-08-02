@@ -9,6 +9,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 //Selecionar o id do cliente para puxar informações do banco de dados 
 $sth = $pdo->query("SELECT * FROM usuario WHERE id=$id");
 $row = $sth->fetch();
+
 ?>
 
 <!--Formulario para editar-->

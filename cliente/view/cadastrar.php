@@ -3,7 +3,7 @@
 include "../../header.inc.php";
 //RESPONSAVEL PELA INSERÇÃO DAS INFORMAÇOES NO BANCO DE DADOS
 include "../../_app/config.php";
-
+//
 ?>
  <!--INI FORM "sempre lembrar de colocar método e o direcionamento da página"-->
 <form method="POST" action="../insert.php">
