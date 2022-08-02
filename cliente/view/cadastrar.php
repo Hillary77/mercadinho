@@ -51,4 +51,5 @@ include "../../_app/config.php";
 <?php
 //TRAZ A BASE DO NAVBAR
 include "../../footer.inc.php";
+
 ?>
