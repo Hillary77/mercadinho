@@ -75,5 +75,4 @@ if ($id) {
 
 <?php
 //TRAZ A BASE DO NAVBAR
-
 include "../../footer.inc.php";
