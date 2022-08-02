@@ -1,7 +1,5 @@
 <?php
-/*
- * RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
- */
+//RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
 include '../_app/config.php';
 
 //Recupera as informações preenchidas no formulário que foi trago pelo metódo POST.
