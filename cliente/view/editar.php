@@ -58,6 +58,7 @@ $row = $sth->fetch();
 
 
 <?php
+//TRAZ NAVBAR
 include "../../footer.inc.php";
 ?>
 
