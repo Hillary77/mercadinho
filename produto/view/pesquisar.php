@@ -6,7 +6,7 @@ $nomes = filter_input(INPUT_POST, 'pesquisa', FILTER_DEFAULT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
 if ($nomes) {
-
+   //Traz dados e indica quais dados devem ser pesquisados
     $sql = "SELECT id, nome_produto, descricao, valor, estoque, public, imagem FROM produto WHERE nome_produto LIKE '%$nomes%'";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();

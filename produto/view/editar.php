@@ -7,6 +7,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 //Selecionar o id do cliente para puxar informações do banco de dados 
 $sth = $pdo->query("SELECT * FROM produto WHERE id=$id");
 $row = $sth->fetch();
+
 ?>
 
 <!--Formulario para editar-->
@@ -47,6 +48,7 @@ $row = $sth->fetch();
 
 
 <?php
+// TRAZ BASE DO NAVBAR
 include "../../footer.inc.php";
 ?>
 
