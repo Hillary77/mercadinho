@@ -1,6 +1,5 @@
 <?php
 //RESPONSAVEL PELA INSERÇÃO DAS INFORMAÇOES NO BANCO DE DADOS
-//Sempre no início da página
 include "../../_app/config.php";
 include "../../header.inc.php";
 
@@ -13,7 +12,6 @@ $row = $sth->fetch();
 ?>
 
 <!--Formulario para editar-->
-
 <form method="POST" action="../update.php ">
     <input type="hidden" name="id" value="<?= $id ?>">
     <div class="form-row">
