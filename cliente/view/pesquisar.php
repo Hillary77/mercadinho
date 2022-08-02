@@ -2,7 +2,6 @@
 include "../../header.inc.php";
 include '../../_app/config.php';
 
-
 $nomes = filter_input(INPUT_POST, 'pesquisa', FILTER_DEFAULT);
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
@@ -41,7 +40,7 @@ if ($nomes) {
                 $dois = substr($cep, -3);
                 $cep_br = $um . '-' . $dois;
                 $i++;
-
+               //lista dados
                 echo"<tr>";
                 echo"<td>$i</td>";
                 echo"<td>$nome</td>";
