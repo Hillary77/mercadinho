@@ -3,6 +3,7 @@
 /*
  * RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
  */
+//
 include "../_app/config.php";
 
 //recupera as informçações do formulario
