@@ -1,5 +1,4 @@
 <?php
-//
 // RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
 include "../_app/config.php";
 
@@ -27,7 +26,7 @@ foreach ($check as $key => $value) {
     $insert->bindValue('public', date('Y-m-d H:m:i'), PDO::PARAM_STR);
     $insert->execute();
 }
-
+//confere se foi executado e redireciona update para index
 if ($insert) {
     header("Location: view/index.php");
 } else {
