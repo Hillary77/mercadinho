@@ -1,9 +1,8 @@
 <?php
-/*
- * RESPONSAVEL PELA INSERÇÃO DAS INFORMAÇOES NO DB
- */
+//RESPONSAVEL PELA INSERÇÃO DAS INFORMAÇOES NO DB
 include "../../_app/config.php";
 include "../../header.inc.php";
+
 //Recupera as informações preenchidas no formulário que foi trago pelo metódo GET.
 $codigo = filter_input(INPUT_GET, 'venda', FILTER_VALIDATE_INT);
 

@@ -37,7 +37,7 @@ include "../../_app/config.php";
             </thead>            
             <tbody>
                 <?php
-                //Gera/traz dados dos produtos
+                // Gera/traz dados dos produtos
                 $produto = $pdo->query('SELECT * FROM produto ORDER BY nome_produto');
                 $dados = $produto->fetchAll();
 
