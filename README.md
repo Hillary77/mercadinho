@@ -1,6 +1,6 @@
 # mercadinho
 Controle de estoque de um mercado (Feito no estágio EPL).
--> Possui muitas algumas funcionalidade. 
+-> Possui algumas funcionalidade. 
 
 *Cliente
 -> Cadastra cliente no banco de dados e possui tabela com dados.
