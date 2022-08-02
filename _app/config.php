@@ -1,7 +1,6 @@
 <?php
-
 //define('URL', $_SERVER['HTTP_HOST']);
-//var_dump(URL); (achar com mais facilidade as pastas)
+//var_dump(URL);
 /* Modal
  * Encaminha informação do banco para o controller
  */
