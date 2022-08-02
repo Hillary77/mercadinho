@@ -1,5 +1,4 @@
 <?php
-
 /*
  * RESPONSÁVEL POR EDITAR AS INFORMAÇÕES DO DB
  */
@@ -12,6 +11,7 @@ $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $sql = "UPDATE usuario SET nome=:nome,ultimonome=:ultimonome,email=:email,endereco=:endereco,cidade=:cidade,data=:data,cep=:cep WHERE id=:id";
 $update = $pdo->prepare($sql);
 
+//Depois de executar corretamente, redireciona os dados a tabela.
 if ($update->execute($dados)) {
     header("Location: view/index.php");
     echo'<p>Editado com sucesso</p>';
