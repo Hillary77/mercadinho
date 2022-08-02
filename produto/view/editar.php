@@ -48,7 +48,6 @@ $row = $sth->fetch();
 
 
 <?php
-// TRAZ BASE DO NAVBAR
 include "../../footer.inc.php";
 ?>
 

@@ -94,7 +94,7 @@ if ($id) {
 <!--Ini Javascript-->
 
 <script>
-    //executa junto ao modal cada dado
+    //executa junto ao modal os dados
     $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget); // Botão que acionou o modal
         var text = button.data('text');// Extrai informação dos atributos data-*
