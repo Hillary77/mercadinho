@@ -26,8 +26,8 @@ if ($nomes) {
             <?php
             foreach ($rows as $row) {
                 extract($row);
-               //loops com os dados 
-               echo"<tr class = text-center>";
+                
+                echo"<tr class = text-center>";
                 echo"<td>$codigo</td>";
                 echo"<td>$nome $ultimonome</td>";
                 echo"<td>$conta</td>";
